@@ -23,4 +23,10 @@ public class ExampleInstrumentedTest {
 
         assertEquals("com.ck.rxjavademo", appContext.getPackageName());
     }
+
+    @Test
+    public void testT() {
+        PointT pointT = new PointT();
+    }
+
 }

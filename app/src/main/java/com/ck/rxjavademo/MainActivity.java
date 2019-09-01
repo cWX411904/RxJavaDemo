@@ -6,27 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import org.reactivestreams.Publisher;
+import java.util.function.BiFunction;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import io.reactivex.BackpressureStrategy;
-import io.reactivex.Flowable;
-import io.reactivex.FlowableEmitter;
-import io.reactivex.FlowableOnSubscribe;
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.ObservableSource;
-import io.reactivex.Observer;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.BiFunction;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
-import io.reactivex.functions.Predicate;
-import io.reactivex.observables.GroupedObservable;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -409,20 +390,20 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        Flowable.zip(
-                Flowable.just(1, 2, 3),
-                Flowable.just(4, 5),
-                new BiFunction<Integer, Integer, Object>() {
-                    @Override
-                    public Object apply(Integer integer, Integer integer2) throws Exception {
-                        return integer + integer2;
-                    }
-                }).subscribe(new Consumer<Object>() {
-            @Override
-            public void accept(Object o) throws Exception {
-                Log.d(TAG, "accept: " + o);
-            }
-        });
+//        Flowable.zip(
+//                Flowable.just(1, 2, 3),
+//                Flowable.just(4, 5),
+//                new BiFunction<Integer, Integer, Object>() {
+//                    @Override
+//                    public Object apply(Integer integer, Integer integer2) throws Exception {
+//                        return integer + integer2;
+//                    }
+//                }).subscribe(new Consumer<Object>() {
+//            @Override
+//            public void accept(Object o) throws Exception {
+//                Log.d(TAG, "accept: " + o);
+//            }
+//        });
 
 
 
