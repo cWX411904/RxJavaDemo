@@ -29,4 +29,18 @@ public class Obserable<T> {
     public void subscrible(Observer<? super T> observer) {
         obserableOnSubscribe.subscribe(observer);
     }
+
+    //转换操作符
+
+    /**
+     * ? super T : 存（set）参数   这样写法一般用在方法参数里面
+     * ? extends R： 取（get）参数  这样写法一般用在方法的返回值
+     * @param function
+     * @param <R>
+     * @return
+     */
+    public <R> Obserable<R> map(Function<? super T, ? extends R> function) {
+
+        return new Obserable<>(new OnSubscribleLift(obserableOnSubscribe, function));
+    }
 }
