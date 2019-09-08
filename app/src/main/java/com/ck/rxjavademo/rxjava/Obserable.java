@@ -43,4 +43,12 @@ public class Obserable<T> {
 
         return new Obserable<>(new OnSubscribleLift(obserableOnSubscribe, function));
     }
+
+    public Obserable<T> subecribleOnIo() {
+        return create(new OnSubscribleOnIO(this));
+    }
+
+    public Obserable<T> subscribleOnMain() {
+        return create(new OnSubscribleMain<T>(this));
+    }
 }
